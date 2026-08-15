@@ -1,5 +1,5 @@
 from ollama import chat
-from llm.config import MODEL, SYSTEM_PROMPT
+from agent.config import MODEL, SYSTEM_PROMPT
 from tools.manage_tools import available_functions, manage_tool_calls
 
 

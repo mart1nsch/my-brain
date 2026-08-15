@@ -9,7 +9,7 @@ def create_file(filename:str, content:str) -> int:
     0 if created with success, 1 if not
     """
     try:
-        with open(filename, 'w', encoding='utf-8') as file:
+        with open('agent_creations/' + filename, 'w', encoding='utf-8') as file:
             file.write(content)
         return True
     except Exception:
