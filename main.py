@@ -1,18 +1,22 @@
 from agent.call import execute
+from fastapi import FastAPI
+from pydantic import BaseModel
 
 
-def _get_user_input() -> str:
-    q = ''
-    while not q:
-        q = input('ask something: ')
-    return q
+class Request(BaseModel):
+    message: str
 
 
-def main() -> None:
-    while True:
-        interaction = _get_user_input()
-        execute(interaction)
+app = FastAPI()
 
 
-if __name__ == '__main__':
-    main()
+@app.get('/test')
+def test() -> None:
+    return {
+        'status': 'running'
+    }
+
+
+@app.post('/message')
+def main(message:Request) -> None:
+    execute(message.message)
