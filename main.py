@@ -19,4 +19,4 @@ def test() -> None:
 
 @app.post('/message')
 def main(message:Request) -> None:
-    execute(message.message)
+    return execute(message.message)

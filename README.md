@@ -11,6 +11,20 @@ It will run the AI model with Ollama.
     pip install -r requirements.txt
     uvicorn main:app --reload --host 0.0.0.0 --port 8008
 
+# Request JSON
+    
+    /message
+    {
+        'message': str
+    }
+
+# Response JSON
+
+    /message
+    {
+        'message': str
+    }
+
 # Diary
 
 ### August 13

@@ -3,10 +3,6 @@ from agent.config import MODEL, SYSTEM_PROMPT
 from tools.manage_tools import available_functions, manage_tool_calls
 
 
-def _show_final_message(messages:list[dict]) -> None:
-    print(messages[-1]['content'])
-
-
 def _agentic_loop(messages:list[dict]) -> list[dict]:
     while True:
         response = chat(
@@ -36,4 +32,4 @@ def execute(interaction:str) -> None:
         }
     ]
     messages = _agentic_loop(messages)
-    _show_final_message(messages)
+    return messages[-1]['content']
