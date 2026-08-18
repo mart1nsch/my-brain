@@ -36,3 +36,6 @@ Also, I have moved the files that the agent creates at my tests to the agent_cre
 
 ### August 15
 Started in the UI. First, I had to modify my python project to be an API using FastAPI. I'm using SwiftUI as my UI framework for it, get a nice macOS looking for it.
+
+### August 17
+Today I'm ending my first version. It has only a ugly front-end with two text boxes and one button to send a request to this API, I'm making it with SwiftUI, Claude helped me a lot, I didn't understand much about how to use SwiftUI correctly, so, I'm improvising for now, to have only a structure capable of testing it. I messed up the returning of the API, I was only sending a text that was not in a JSON format, so I'm fixing that right now.

@@ -7,6 +7,10 @@ class Request(BaseModel):
     message: str
 
 
+class Response(BaseModel):
+    message: str
+
+
 app = FastAPI()
 
 
@@ -18,5 +22,5 @@ def test() -> None:
 
 
 @app.post('/message')
-def main(message:Request) -> None:
-    return execute(message.message)
+def main(message:Request) -> Response:
+    return Response(message=execute(message.message))
