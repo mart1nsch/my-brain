@@ -15,7 +15,7 @@ def create_file(filename:str, extension:str, content:str) -> str:
         filename = filename.split('.')[0]
     
     try:
-        with open('agent_creations/' + filename + '.' + extension, 'w', encoding='utf-8') as file:
+        with open(filename + '.' + extension, 'w', encoding='utf-8') as file:
             file.write(content)
         return 'Success'
     except Exception as e:

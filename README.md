@@ -15,7 +15,8 @@ It will run the AI model with Ollama.
     
     /message
     {
-        'message': str
+        'message': str,
+        'directory': str
     }
 
 # Response JSON
@@ -39,3 +40,6 @@ Started in the UI. First, I had to modify my python project to be an API using F
 
 ### August 17
 Today I'm ending my first version. It has only a ugly front-end with two text boxes and one button to send a request to this API, I'm making it with SwiftUI, Claude helped me a lot, I didn't understand much about how to use SwiftUI correctly, so, I'm improvising for now, to have only a structure capable of testing it. I messed up the returning of the API, I was only sending a text that was not in a JSON format, so I'm fixing that right now.
+
+### August 18
+Asked Claude to improve the Front-End, I was not happy with SwiftUI. I have changed the API to accept a directory parameter, to define where the agent will create the file.

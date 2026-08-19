@@ -5,6 +5,7 @@ from pydantic import BaseModel
 
 class Request(BaseModel):
     message: str
+    directory: str
 
 
 class Response(BaseModel):
@@ -23,4 +24,4 @@ def test() -> None:
 
 @app.post('/message')
 def main(message:Request) -> Response:
-    return Response(message=execute(message.message))
+    return Response(message=execute(message.message, message.directory))

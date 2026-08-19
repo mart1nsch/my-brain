@@ -3,7 +3,7 @@ from agent.config import MODEL, SYSTEM_PROMPT
 from tools.manage_tools import available_functions, manage_tool_calls
 
 
-def _agentic_loop(messages:list[dict]) -> list[dict]:
+def _agentic_loop(messages:list[dict], directory:str) -> list[dict]:
     while True:
         response = chat(
             model=MODEL,
@@ -14,13 +14,13 @@ def _agentic_loop(messages:list[dict]) -> list[dict]:
         messages.append(response.message)
 
         if response.message.tool_calls:
-            messages.extend(manage_tool_calls(response.message.tool_calls))
+            messages.extend(manage_tool_calls(response.message.tool_calls, directory))
         else:
             break
     return messages
 
 
-def execute(interaction:str) -> None:
+def execute(interaction:str, directory:str) -> None:
     messages = [
         {
             'role': 'system',
@@ -31,5 +31,5 @@ def execute(interaction:str) -> None:
             'content': interaction
         }
     ]
-    messages = _agentic_loop(messages)
+    messages = _agentic_loop(messages, directory)
     return messages[-1]['content']
