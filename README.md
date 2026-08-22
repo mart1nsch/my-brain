@@ -6,12 +6,20 @@ It will run the AI model with Ollama.
 
 # How to run this project:
 
+### Back-End (Run this first)
+
     python3 -m venv venv
     source venv/bin/activate
     pip install -r requirements.txt
     uvicorn main:app --reload --host 0.0.0.0 --port 8008
 
-# Request JSON
+### Front-End (Run this after Back-End)
+
+    python3 -m frontend.main
+
+# Routes
+
+### Request JSON
     
     /message
     {
@@ -19,7 +27,7 @@ It will run the AI model with Ollama.
         'directory': str
     }
 
-# Response JSON
+### Response JSON
 
     /message
     {
@@ -43,3 +51,6 @@ Today I'm ending my first version. It has only a ugly front-end with two text bo
 
 ### August 18
 Asked Claude to improve the Front-End, I was not happy with SwiftUI. I have changed the API to accept a directory parameter, to define where the agent will create the file.
+
+### August 21
+Got angry with SwiftUI and trow it away. Fresh start with Claude to create only the Front-End to execute in a terminal, just like my first plan wanted to do. I used Claude because I hate Front-End and I have no criativity on that. And now we have at least a Front-End to the agent.

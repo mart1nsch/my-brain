@@ -21,6 +21,7 @@ def system_line(text:str) -> str:
 def help_text() -> str:
     return (
         '[' + SYSTEM_COLOR + ']'
+        '/dir          show the current working directory\n'
         '/dir <path>   set the working directory\n'
         '/help         show this message\n'
         '/exit, /quit  leave the chat'

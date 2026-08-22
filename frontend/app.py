@@ -2,7 +2,7 @@ from rich.spinner import Spinner
 from textual.app import App, ComposeResult
 from textual.widgets import RichLog, Input, Static
 from textual import work
-from frontend.client import send_message, set_directory
+from frontend.client import send_message, set_directory, get_directory
 from frontend.display import banner_text, assistant_body, error_line, system_line, help_text
 from frontend.config import SYSTEM_COLOR
 
@@ -96,7 +96,12 @@ class AgentApp(App):
             return
         if name == '/dir':
             if len(parts) < 2:
-                log.write(error_line('Usage: /dir <path>'))
+                result = get_directory()
+                if result.startswith('Error'):
+                    log.write(error_line(result))
+                    log.write('')
+                    return
+                log.write(system_line('working directory: ' + result))
                 log.write('')
                 return
             new_directory = parts[1].strip()

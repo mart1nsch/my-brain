@@ -1,27 +1,30 @@
 from agent.call import execute
+from config.settings import settings, RequestAgent, ResponseAgent, RequestDirectory
 from fastapi import FastAPI
-from pydantic import BaseModel
-
-
-class Request(BaseModel):
-    message: str
-    directory: str
-
-
-class Response(BaseModel):
-    message: str
 
 
 app = FastAPI()
 
 
 @app.get('/test')
-def test() -> None:
-    return {
-        'status': 'running'
-    }
+def test() -> dict:
+    return { 'status': 'running' }
+
+
+@app.get('/directory')
+def get_directory() -> ResponseAgent:
+    return ResponseAgent(message=settings.directory)
 
 
 @app.post('/message')
-def main(message:Request) -> Response:
-    return Response(message=execute(message.message, message.directory))
+def agent_loop(request:RequestAgent) -> ResponseAgent:
+    return ResponseAgent(message=execute(request.message))
+
+
+@app.post('/directory')
+def set_directory(request:RequestDirectory) -> dict:
+    try:
+        settings.directory = request.directory
+        return { 'response': 'success' }
+    except Exception as e:
+        return { 'response': 'Error: ' + str(e) }

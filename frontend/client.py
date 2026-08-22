@@ -23,6 +23,15 @@ def send_message(message:str, directory:str) -> str:
         return 'Error: ' + str(e)
 
 
+def get_directory() -> str:
+    try:
+        response = requests.get(API_BASE_URL + '/directory', timeout=10)
+        response.raise_for_status()
+        return response.json()['message']
+    except Exception as e:
+        return 'Error: ' + str(e)
+
+
 def set_directory(directory:str) -> str:
     try:
         response = requests.post(
