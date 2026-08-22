@@ -1,10 +1,16 @@
-from tools.tools import create_file
+from tools.tools import create_file, read_file
 from config.settings import settings
 
 
 available_functions = {
-    'names': ['create_file'],
-    'functions': [create_file]
+    'names': [
+        'create_file',
+        'read_file'
+    ],
+    'functions': [
+        create_file,
+        read_file
+    ]
 }
 
 
@@ -14,7 +20,7 @@ def _get_tool(function_name:str):
 
 
 def _execute_tool(tool_calls) -> str:
-    if tool_calls.function.name == 'create_file':
+    if tool_calls.function.name in ('create_file', 'read_file'):
         tool_calls.function.arguments['filename'] = settings.directory + '/' + tool_calls.function.arguments['filename']
     return str(_get_tool(tool_calls.function.name)(**tool_calls.function.arguments))
 

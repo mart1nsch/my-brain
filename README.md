@@ -54,3 +54,6 @@ Asked Claude to improve the Front-End, I was not happy with SwiftUI. I have chan
 
 ### August 21
 Got angry with SwiftUI and trow it away. Fresh start with Claude to create only the Front-End to execute in a terminal, just like my first plan wanted to do. I used Claude because I hate Front-End and I have no criativity on that. And now we have at least a Front-End to the agent.
+
+### August 22
+Added the hability to read files for the agent. It only is able to see Python files, nothing else.
