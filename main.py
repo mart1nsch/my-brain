@@ -1,9 +1,14 @@
 from agent.call import execute
 from config.settings import settings, RequestAgent, ResponseAgent, RequestDirectory
+from db.connection import create_tables, clean_chat
 from fastapi import FastAPI
 
 
 app = FastAPI()
+
+
+create_tables()
+clean_chat(starting=True)
 
 
 @app.get('/test')
