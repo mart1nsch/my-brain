@@ -1,15 +1,17 @@
-from tools.tools import create_file, read_file
+from tools.tools import create_file, read_file, update_file
 from config.settings import settings
 
 
 available_functions = {
     'names': [
         'create_file',
-        'read_file'
+        'read_file',
+        'update_file'
     ],
     'functions': [
         create_file,
-        read_file
+        read_file,
+        update_file
     ]
 }
 

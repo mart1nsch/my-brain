@@ -20,6 +20,7 @@ def _assembly_messages(interaction:str) -> list[dict]:
         'role': 'user',
         'content': interaction
     })
+    print('messages:', messages)
     return messages
 
 

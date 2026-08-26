@@ -26,7 +26,7 @@ def clean_chat(starting:bool) -> None:
     con = _create_connection()
     if starting:
         con.execute('DELETE FROM chat')
-    elif _return_len_chat() == 5:
+    elif _return_len_chat() == 50:
         res = con.execute('SELECT MIN(id) FROM chat')
         id = res.fetchone()[0]
         con.execute(f"DELETE FROM chat WHERE id = {id}")

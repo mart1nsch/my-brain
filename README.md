@@ -57,3 +57,6 @@ Got angry with SwiftUI and trow it away. Fresh start with Claude to create only 
 
 ### August 22
 Added the hability to read files for the agent. It only is able to see Python files, nothing else. Also, added sqlite to use as memory for the model, but it isn't working as intended, so, need to work on that.
+
+### August 25
+Now the agent can update files and the directory set was refactored, now the folder that the user called the agent is set as the default directory, instead of always sending it to the tests folder here in the app folder.

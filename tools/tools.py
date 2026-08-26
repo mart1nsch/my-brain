@@ -42,3 +42,27 @@ def read_file(filename:str, extension:str) -> str:
             return file.read()
     except Exception as e:
         return 'Error: ' + str(e)
+
+
+def update_file(filename:str, extension:str, new_content:str) -> str:
+    """"Replace all the old content of the file with the new one"""
+    """"
+    Args:
+    filename: Filename WITHOUT extension
+    extension: The file extension
+    new_content: The new content of the file
+
+    Returns:
+    'Success' if created with success, 'Error: ...' if not
+    """
+    if extension != 'py':
+        return 'Error: Only python files can be created'
+    if filename.__contains__('.'):
+        filename = filename.split('.')[0]
+    
+    try:
+        with open(filename + '.' + extension, 'w', encoding='utf-8') as file:
+            file.write(new_content)
+        return 'Success'
+    except Exception as e:
+        return 'Error: ' + str(e)

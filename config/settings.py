@@ -1,8 +1,9 @@
 from pydantic import BaseModel
+from pathlib import Path
 
 
 class Settings:
-    directory: str = 'agent_creations'
+    directory: str = str(Path().absolute())
 
 
 class RequestAgent(BaseModel):

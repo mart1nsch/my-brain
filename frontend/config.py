@@ -1,8 +1,9 @@
-import os
+from pathlib import Path
 
 
-API_BASE_URL = os.environ.get('FRONTEND_API_URL', 'http://localhost:8008')
-DEFAULT_DIRECTORY = os.environ.get('FRONTEND_DEFAULT_DIRECTORY', 'agent_creations')
+API_BASE_URL = 'http://localhost:8008'
+DEFAULT_DIRECTORY = str(Path().absolute())
+
 
 ACCENT_COLOR = 'bold cyan'
 SYSTEM_COLOR = 'dim white'
